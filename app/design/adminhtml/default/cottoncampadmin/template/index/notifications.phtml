@@ -24,6 +24,11 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<?php
+		$roleId = implode('', Mage::getSingleton('admin/session')->getUser()->getRoles());
+		$roleName = Mage::getModel('admin/roles')->load($roleId)->getRoleName();
+		if($roleName!="Siteadmin"){
+		?>
 <?php $_processes = $this->getProcessesForReindex()?>
 <?php if($_processes):?>
 <div class="notification-global">
@@ -31,4 +36,7 @@
     <?php echo implode(', ', $_processes)?>.
     <?php echo $this->helper('index')->__('Click here to go to <a href="%s">Index Management</a> and rebuild required indexes.', $this->getManageUrl());?>
 </div>
-<?php endif;?>
+<?php endif;
+}
+?>
+
