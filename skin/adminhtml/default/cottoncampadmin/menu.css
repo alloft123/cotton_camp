@@ -21,17 +21,7 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
-.nav-bar { 
-border-top:1px solid #2d444f; border-bottom:1px solid #2d444f; background:url(images/menu.png) repeat-x 0 100% #666e73; padding:0 30px;
-
-/*background:url(images/menu.png) repeat-x;
-	position: relative;
-	z-index: 1;
-	height: 34px;
-	clear: both;
-	padding: 0px 30px;
-	min-width: 900px;*/
-  }
+.nav-bar { border-top:1px solid #2d444f; border-bottom:1px solid #2d444f; background:url(images/menu.png) repeat-x 0 100% #666e73; padding:0 30px;  }
 
 #nav { float:left; }
 
@@ -66,10 +56,7 @@ border-top:1px solid #2d444f; border-bottom:1px solid #2d444f; background:url(im
 
 /************ 2ND LEVEL ************/
 #nav ul { position:absolute; width:189px; top:27px; left:-10000px; padding-bottom:3px; border-top:1px solid #2d444f; }
-#nav ul ul  { list-style: none;
-	margin: 0;
-	padding: 0;
-	background: url(images/transparent.png); }
+#nav ul ul  { border-top:0; background:url(images/nav3_bg.png) 0 0 no-repeat; padding-top:2px; left:100px; top:13px; }
 
 /* Show menu */
 #nav li.over ul { left:-1px; }
@@ -82,11 +69,11 @@ border-top:1px solid #2d444f; border-bottom:1px solid #2d444f; background:url(im
 #nav li.over ul a,
 #nav ul li.active a,
 #nav ul li a,
-#nav ul li a:hover { color:#2f2f2f; }
+#nav ul li a:hover { color:#FFFFFF; }
 #nav ul span,
-#nav ul li.last li span { padding:5px 15px; background:url(images/nav2_link_bg.gif) repeat-x 0 100%; }
+#nav ul li.last li span { padding:5px 15px; background:url(images/transparent.png) repeat-x 0 100%; }
 #nav ul li.last span,
-#nav ul li.last li.last span { background:none; }
+#nav ul li.last li.last span { background:url(images/transparent.png) repeat-x 0 100%; }
 #nav ul li.last { background:url(images/nav2_last_li_bg.png) no-repeat 0 100%; padding-bottom:3px; }
 
 #nav ul li.parent a,
@@ -110,82 +97,3 @@ border-top:1px solid #2d444f; border-bottom:1px solid #2d444f; background:url(im
 #nav li.over ul li.over ul li.over ul { left:100px; }
 
 .nav-bar:after { content:"."; display:block; clear:both; font-size:0; line-height:0; height:0; overflow:hidden;  }
-
-
-
-/*#menu {
-	background: url(images/menu.png) repeat-x;
-	position: relative;
-	z-index: 1;
-	height: 34px;
-	clear: both;
-	padding: 0px 30px;
-	min-width: 900px;
-}
-#menu > ul.left {
-	float: left;
-}
-#menu > ul.right {
-	float: right;
-}
-#menu > ul {
-	position: relative;
-	margin: 0;
-	padding: 0;
-}
-#menu > ul ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	background: url(images/transparent.png);
-}
-#menu > ul a {
-	display: block;
-	color: #FFFFFF;
-	text-decoration: none;
-	padding: 5px;
-}
-#menu > ul > li + li {
-	background: url(images/split.png) center left no-repeat;
-}
-#menu > ul .top, #menu > ul li li.sfhover {
-	padding: 10px 15px 9px 17px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	color: #FFFFFF;
-	text-align: center;
-}
-#menu > ul ul li {
-	padding: 2px;
-}
-#menu > ul .selected .top {
-	background: url(images/selected.png) repeat-x;
-	color: #FFFFFF;
-}
-#menu > ul .selected:hover a.top, #menu > ul .sfhover a.top {
-}
-#menu > ul .parent {
-	background: url(images/arrow-right.png) 95% center no-repeat;
-}
-#menu > ul li {
-	float: left;
-	list-style: none;
-}
-#menu > ul li ul {
-	position: absolute;
-}
-#menu > ul li li {
-	clear: both;
-}
-#menu > ul li ul a {
-	color: #FFFFFF;
-	height: 15px;
-	width: 145px;
-}
-#menu > ul li ul ul {
-	margin: -27px 0 0 157px;
-}
-#menu > ul li li:hover, #menu > ul li li.sfhover {
-	background: #333;
-	color: #000000;
-}*/

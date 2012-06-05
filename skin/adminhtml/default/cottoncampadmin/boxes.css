@@ -61,6 +61,18 @@
 
 /* LOADING INDICATOR
 *******************************************************************/
+#header .div1 {
+    background: url(images/header.png) repeat-x scroll 0 0 transparent;
+    height: 56px;
+    min-width: 900px;
+    padding: 0 30px;
+}
+#header .div2 {
+    color: #FFFFFF;
+    float: left;
+    padding:0px;
+}
+#header .div2 .logos{float:left;height:55px;width:200px;}
 #loading-process {
     position:absolute;
     top:45%;
@@ -419,10 +431,9 @@ span.delete-file                { padding:0; }
 .content-header .form-buttons button { margin-bottom:3px; }
 .sub-btn-set { border:1px solid #ddd; border-width:0 1px; background:url(images/sub_button_bg.gif) repeat; padding:3px 10px; text-align:right; }
 button,
-.form-button { /*border-width:1px; border-style:solid; border-color:#ed6502 #a04300 #a04300 #ed6502; padding:0 7px 1px 7px; background:#ffac47 url(images/btn_bg.gif) repeat-x 0 100%; color:#fff; font:bold 12px arial, helvetica, sans-serif; cursor:pointer; text-align:center !important; white-space:nowrap; */
-border-width:1px;border-style:solid;border-color:#003A88;padding: 4px 12px;text-decoration: none;
-background:none repeat scroll 0 0 #003A88;color:#FFFFFF;font:bold 12px arial, helvetica, sans-serif;cursor:pointer;
-text-align:center !important;white-space:nowrap; border-radius: 10px 10px 10px 10px;}
+.form-button { border-width:1px;border-style:solid;border-color:#003A88;padding: 4px 12px;text-decoration: none;
+										background:none repeat scroll 0 0 #003A88;color:#FFFFFF;font:bold 12px arial, helvetica, sans-serif;cursor:pointer; 
+										text-align:center !important;white-space:nowrap; border-radius: 10px 10px 10px 10px;}
 /*button:hover                    { background:#f77c16 url(images/btn_over_bg.gif) repeat-x 0 0; }*/
 button:active                   { background:#f77c16 url(images/btn_on_bg.gif) repeat-x 0 0; }
 button span                     { line-height:1.35em; background-repeat:no-repeat; background-position:0 50%; }
@@ -440,14 +451,14 @@ button.add-widget span { padding-left:20px; }
 /* Google Chrome specific fix for empty buttons */
 button.add span:after,
 button.delete span:after { display:inline-block; clear:both; content:"."; font-size:0; line-height:0; height:0; overflow:hidden; }
-/*button.back { border-color:#ccc #aaa #aaa #ccc; background-color:#fff; background-image:url(images/btn_back_bg.gif); color:#555; }*/
+button.back { border-color:#ccc #aaa #aaa #ccc; background-color:#fff; background-image:url(images/btn_back_bg.gif); color:#555; }
 button.back span { background-image:url(images/icon_btn_back.gif); }
 button.fail,
 button.cancel,
-/*button.delete { border-color:#d24403 #a92000 #a92000 #d24403; background-image:url(images/cancel_btn_bg.gif); background-color:#fcaf81; color:#fff; }*/
+button.delete { border-color:#d24403 #a92000 #a92000 #d24403; background-image:url(images/cancel_btn_bg.gif); background-color:#fcaf81; color:#fff; }
 button.fail:hover,
 button.cancel:hover,
-/*button.delete:hover { background-image:url(images/cancel_btn_over_bg.gif); }*/
+button.delete:hover { background-image:url(images/cancel_btn_over_bg.gif); }
 button.fail:active,
 button.cancel:active,
 button.delete:active { background-image:url(images/cancel_btn_active_bg.gif); background-color:#e0612f; }
@@ -560,7 +571,7 @@ td.divider              { font-size:1px; line-height:0; }
 *******************************************************************************/
 .wrapper { min-width:960px; }
 .wrapper-popup { min-width:750px; }
-.header { background:url(images/header_top_bg.gif) repeat-x #425e66; text-align:right; }
+.header { background:url(images/header.png) repeat-x #425e66; text-align:right; }
 .middle { min-height:450px; background:url(images/simple_container_bg.gif) repeat-x #fff; padding:23px 27px 0 27px; }
 .middle-popup { border-bottom:3px solid #fff; background:url(images/middle_bg.gif) repeat-x 0 100% #fff; padding:0 0 0 0; background:yellow; }
 .container-collapsed { padding:1.8em 2.2em 1.8em 2em; padding-top:0; }
@@ -570,7 +581,7 @@ div.side-col { float:left; width:220px; margin-right:-220px; padding-bottom:25px
 div.main-col { margin-left:220px; min-height:450px; padding:0 0 25px 25px; }
 div.main-col-inner { float:left; /* Fixes some inner clears in the liquid main-col */ width:100%; }
 
-.footer { clear:both; background:url(images/footer_bg.gif) repeat-x #e6e6e6; padding:105px 2.8em 2.8em 2.8em; font-size:.95em; text-align:center; }
+.footer { clear:both; background:url(images/footer.png) repeat-x #e6e6e6; padding:105px 2.8em 2.8em 2.8em; font-size:.95em; text-align:center; }
 .simple-container-popup { min-height:50px !important; padding:1.8em 2.3em 6em 2.3em; background:url(images/simple_container_bg.gif) repeat-x; }
 
 .page-popup { background:#fff; }
@@ -584,12 +595,7 @@ div.main-col-inner { float:left; /* Fixes some inner clears in the liquid main-c
 *******************************************************************************/
 
 .logo                                   { float:left; margin:5px 20px 5px 27px; height:43px; }
-.header-top                             { /*border-bottom:1px solid #5F767F;*/
-height: 56px;
-	padding: 0px 30px;
-	background: url(images/header.png) repeat-x;
-	min-width: 900px;
- }
+.header-top                             { border-bottom:1px solid #5F767F; }
 
 /* Header right */
 .header-right                           { padding:10px 25px 0 15px; font-size:.95em; color:#fff; }
@@ -641,8 +647,7 @@ div.autocomplete ul li { padding:.5em .7em; min-height:32px; cursor:pointer; tex
     padding-bottom:.25em;
     }
 .content-header table           { width:100%; }
-/* content header color changes */
-.content-header h3              { float:left; margin:.3em .5em 0 0; color:#003A88; font-size:1.25em; line-height:1.2em; }
+.content-header h3              { float:left; margin:.3em .5em 0 0; color:#eb5e00; font-size:1.25em; line-height:1.2em; }
 .content-header .head h3        { float:none; }
 .content-header .button-set     { white-space:nowrap; text-align:right; }
 .content-header .content-buttons  { white-space:nowrap!important; margin:0; }
@@ -720,7 +725,7 @@ div.autocomplete ul li { padding:.5em .7em; min-height:32px; cursor:pointer; tex
 /* LOGIN
 *******************************************************************************/
 #page-login                             { background:#f8f8f8; text-align:center; }
-.login-container                        { width:581px; margin:170px auto; padding-left:32px; background:url(images/login_logo.gif) no-repeat; }
+.login-container                        { height: auto;min-height: 100%;}
 .login-form                             { padding:27px 57px 35px 57px; background:url(images/login_box_bg.jpg) no-repeat; text-align:left; }
 .login-form .input-left                 { float:left; }
 .login-form .input-right                { float:right; }
@@ -737,11 +742,24 @@ div.autocomplete ul li { padding:.5em .7em; min-height:32px; cursor:pointer; tex
 .login-form .captcha-image img          { vertical-align:bottom; }
 .login-form .captcha-reload             { cursor:pointer; position: absolute; top:2px; right:2px; }
 .login-form .captcha-reload.refreshing  { animation:rotate 1.5s infinite linear; -webkit-animation:rotate 1.5s infinite linear; -moz-animation:rotate 1.5s infinite linear; }
-
+/*loging panel by loganathan****/
+.login-header							{background: url(images/box_1.png) repeat-x scroll 0 0 transparent;border: 1px solid #DBDBDB;border-radius: 7px 7px 0 0;height: 38px;
+										 padding-left: 7px;padding-right: 7px;}
+.login-header h1						{color: #003A88;float: left;font-size: 16px;margin: 0;padding: 11px 0 0;}
+.login-logo								{float: left;margin-left: 3px;margin-right: 8px;margin-top: 10px;}
+.login-content							{border-bottom: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;
+										min-height: 150px;overflow: auto;padding: 10px;}
+.login-content .input-left             { float:left; }
+.login-content .input-right            { float:right; }
+.login-content label                   { float:left; }
+.loginbox							  { margin-left: auto;margin-right: auto;margin-top: 40px;min-height: 300px;width: 400px;}
+.logincontent						{background: url(images/background.png) repeat-x scroll 0 1px #FFFFFF;min-width: 900px;padding: 10px 30px 128px;}
+.login-footer						{background: url(images/footer.png) repeat-x scroll 0 0 #FFFFFF;clear: both;color: #333333;font-size: 12px;height: 90px;padding-top: 38px;position: relative;text-align: center;}
 @-webkit-keyframes rotate {
     0% { -webkit-transform:rotate(0); }
     0% { -webkit-transform:rotate(360deg); }
 }
+
 @-moz-keyframes rotate {
     0% { -moz-transform:rotate(0); }
     0% { -moz-transform:rotate(360deg); }
@@ -1405,15 +1423,6 @@ ul.super-product-attributes { padding-left:15px; }
     color:#ebebff;
     background:url(images/fam_help.gif) no-repeat 0 50%;
     }
-	
-#page-store-link {
-    line-height:26px;
-    padding-left:20px;
-    color:#ebebff;
-	text-decoration:none;
-	font-weight:bold;
-    
-    }	
 #page-help-link:link, #page-help-link:visited { text-decoration:none; }
 #page-help-link:hover { color:white; }
 
