@@ -24,6 +24,11 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<?php 
+$roleId = implode('', Mage::getSingleton('admin/session')->getUser()->getRoles());
+             $roleName = Mage::getModel('admin/roles')->load($roleId)->getRoleName();
+             if($roleName!="Siteadmin")
+             {?>
 <?php if( sizeof($this->getTotals()) > 0 ): ?>
 <div class="box" id="dashboard_diagram_totals">
     <div class="entry-edit">
@@ -40,3 +45,4 @@
     </div>
 </div>
 <?php endif; ?>
+<?php }?>
