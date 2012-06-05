@@ -432,7 +432,7 @@ span.delete-file                { padding:0; }
 .sub-btn-set { border:1px solid #ddd; border-width:0 1px; background:url(images/sub_button_bg.gif) repeat; padding:3px 10px; text-align:right; }
 button,
 .form-button { border-width:1px;border-style:solid;border-color:#003A88;padding: 4px 12px;text-decoration: none;
-										background:none repeat scroll 0 0 #003A88;color:#FFFFFF;font:bold 12px arial, helvetica, sans-serif;cursor:pointer; 
+										background:none repeat scroll 0 0 #000000;color:#FFFFFF;font:bold 12px arial, helvetica, sans-serif;cursor:pointer; 
 										text-align:center !important;white-space:nowrap; border-radius: 10px 10px 10px 10px;}
 /*button:hover                    { background:#f77c16 url(images/btn_over_bg.gif) repeat-x 0 0; }*/
 button:active                   { background:#f77c16 url(images/btn_on_bg.gif) repeat-x 0 0; }
