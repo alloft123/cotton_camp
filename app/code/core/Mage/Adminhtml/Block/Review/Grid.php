@@ -238,7 +238,7 @@ class Mage_Adminhtml_Block_Review_Grid extends Mage_Adminhtml_Block_Widget_Grid
             ->toOptionArray();
         array_unshift($statuses, array('label'=>'', 'value'=>''));
         $this->getMassactionBlock()->addItem('update_status', array(
-            'label'         => Mage::helper('review')->__('Update Status'),
+            'z'         => Mage::helper('review')->__('Update Status'),
             'url'           => $this->getUrl(
                 '*/*/massUpdateStatus',
                 array('ret' => Mage::registry('usePendingFilter') ? 'pending' : 'index')

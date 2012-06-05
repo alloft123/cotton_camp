@@ -24,13 +24,9 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php
-      		   $roleId = implode('', Mage::getSingleton('admin/session')->getUser()->getRoles());
-               $roleName = Mage::getModel('admin/roles')->load($roleId)->getRoleName();
-               if($roleName!="Siteadmin"){  ?>
-				<div id="<?php echo $this->getHtmlId() ?>">
-			<table cellspacing="0" cellpadding="0" class="massaction">
-	<tr>
+<div id="<?php echo $this->getHtmlId() ?>">
+<table cellspacing="0" cellpadding="0" class="massaction">
+<tr>
     <td><?php if ($this->getUseSelectAll()):?>
         <a href="#" onclick="return <?php echo $this->getJsObjectName() ?>.selectAll()"><?php echo $this->__('Select All') ?></a>
         <span class="separator">|</span>
@@ -88,4 +84,3 @@
 </script>
 <?php endif; ?>
 </div>
-<?php }?>

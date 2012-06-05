@@ -301,7 +301,7 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
      */
     public function getId()
     {
-        return $this->getUserId();
+		return $this->getUserId();
     }
 
     /**
