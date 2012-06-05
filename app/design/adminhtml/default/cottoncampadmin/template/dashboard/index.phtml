@@ -104,6 +104,9 @@ function toggleCal(id) {
                     <div class="entry-edit-head"><h4><?php echo $this->__('Last 5 Orders') ?></h4></div>
                     <fieldset class="np"><?php echo $this->getChildHtml('lastOrders'); ?></fieldset>
                 </div>
+                <?php $roleId = implode('', Mage::getSingleton('admin/session')->getUser()->getRoles());
+                      $roleName = Mage::getModel('admin/roles')->load($roleId)->getRoleName();
+                      if($roleName!="Siteadmin"){?>
                 <div class="entry-edit">
                     <div class="entry-edit-head"><h4><?php echo $this->__('Last 5 Search Terms') ?></h4></div>
                     <fieldset class="np"><?php echo $this->getChildHtml('lastSearches'); ?></fieldset>
@@ -113,6 +116,7 @@ function toggleCal(id) {
                     <fieldset class="np"><?php echo $this->getChildHtml('topSearches'); ?></fieldset>
                 </div>
             </td>
+            <?php }?>
             <td>
                 <div class="entry-edit" style="border:1px solid #ccc;">
                     <?php echo $this->getChildHtml('diagrams') ?>
