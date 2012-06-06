@@ -26,9 +26,15 @@
 ?>
 <?php $_processes = $this->getProcessesForReindex()?>
 <?php if($_processes):?>
+<?php
+		$roleId = implode('', Mage::getSingleton('admin/session')->getUser()->getRoles());
+		$roleName = Mage::getModel('admin/roles')->load($roleId)->getRoleName();
+		if($roleName!="Siteadmin"){
+		?>
 <div class="notification-global">
     <strong><?php echo $this->helper('index')->__('One or more of the Indexes are not up to date:') ?></strong>
     <?php echo implode(', ', $_processes)?>.
     <?php echo $this->helper('index')->__('Click here to go to <a href="%s">Index Management</a> and rebuild required indexes.', $this->getManageUrl());?>
 </div>
+<?php } ?>
 <?php endif;?>
