@@ -1579,15 +1579,40 @@ div.actions:after,
 .files-wide .row:after,
 .grid tr.filter .range .range-line:after,
 .store-scope:after { display:block; clear:both; content:"."; font-size:0; line-height:0; height:0; overflow:hidden; }
+
+/* Dash Board Table*/
+.dashboard
+	{
+	width:1000px;
+	}
+/*Dash Board  Last 5 orders*/
+
 .lastorders
 {
-	float:left;
-    width:385px;
-    padding:30px;
+    width:700px;
+    height: 300px;
+    margin-left: 20px;
 }
-.right
+/*Dash Board  right div */
+
+.dashright
 {
-	float:right;
-    width:385px;
-    padding:30px;
+	border:1px solid #ccc;
+    width:550px;
+    height:280px;
+    padding:0px;
+   margin:18px 10px 18px 0;
+  
+}
+
+/*Dash Board left div*/
+
+.dashleft
+{
+	border-width:1px; 
+	border-style:solid; 
+	border-color: #ccc;
+	/*width:500px;*/
+	margin:18px;
+	height:280px;
 }
