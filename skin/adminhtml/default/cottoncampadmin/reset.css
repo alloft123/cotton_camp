@@ -28,7 +28,7 @@
 
 body                    { background:#e6e6e6; color:#2f2f2f; font:12px/1.5em Arial, Helvetica, sans-serif;  }
 
-a                       { color:#FFFFFF; text-decoration:none; }
+a                       { color: #ea7601; text-decoration:none; }
 a:hover                 { color:#ea7601; text-decoration:none; }
 a img                   { border:0; }
 :focus                  { outline:0; }
