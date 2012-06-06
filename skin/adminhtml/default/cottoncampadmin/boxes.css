@@ -734,7 +734,7 @@ div.autocomplete ul li { padding:.5em .7em; min-height:32px; cursor:pointer; tex
 .login-form label                       { font-weight:bold; }
 .login-form .form-buttons               { margin:12px 0 0 0; clear:both; text-align:right; }
 .login-box .bottom                      { width:581px; height:5px; background:url(images/login_box_bottom.jpg) no-repeat; overflow:hidden; }
-.login-container .legal                 { margin:0; background:url(images/login_box_legal_bg.gif) no-repeat; padding:8px 8px 5px 8px; font-size:.95em; }
+.login-container .legal                 { padding:8px 8px 5px 8px; font-size:.95em; }
 .login-form .validation-advice          { margin:3px 0 0 0; }
 .login-form .forgot-link                { margin:0 17px 0 0; text-align:right; }
 .login-form .captcha                    { padding:10px 0 0; }
