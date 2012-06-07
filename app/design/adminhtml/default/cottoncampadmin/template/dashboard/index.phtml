@@ -97,32 +97,42 @@ function toggleCal(id) {
 </div>
 <div class="dashboard-container">
     <?php echo $this->getChildHtml('store_switcher') ?>
-    <table>
+    <table class="dashboard">
     	<tr>
     		<td>
-    		<?php
-    	       $collection2= Mage::getResourceModel('sales/order');
-               echo "<br><br>The Total Order Count is :<br>".count($collection2);
-    		   echo"<br>";
-               echo "<br>The Total Customer Count is:<br>";
-               $collection = Mage::getResourceModel('customer/customer_collection');
-               echo count($collection);
-               $totalsales = Mage::getResourceModel('reports/order_collection');
-               echo "<br><br>The Total Sales Count is :<br>".count($totalsales); 
-              // $write = Mage::getSingleton('core/resource')->getConnection('core_write');
+    		<div class="dashleft">
+    		<h2 style="background-color:#547C96;color:#fff;font-size:15px">Overview</h2>
+    		<?php 
+    		       $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+             	   $value = $read->query("select sum(base_grand_total) as lifetimesales from  sales_flat_quote");
+              	   $row = $value->fetch();
+              	   echo "<br>&nbsp;&nbsp; The Life Time Sales is : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Rs. ". $row['lifetimesales']; 
+    		       $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+             	   $value = $read->query("select sum(base_grand_total) as currentsales from  sales_flat_order sfo where DATE_FORMAT(sfo.created_at,'%Y')=year(now()) ");
+              	   $row = $value->fetch();
+              	   echo "<br>&nbsp;&nbsp; The Current Year Sales is : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Rs. ". $row['currentsales']; 
+    		       $collection2= Mage::getResourceModel('sales/order');
+          	  	   echo "<br>&nbsp;&nbsp;The Total Order Count is : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;".count($collection2);
+                   $collection = Mage::getResourceModel('customer/customer_collection');
+            	   echo "<br>&nbsp;&nbsp;The Total Customer Count is : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;".count($collection);
+            	   $totalsales = Mage::getResourceModel('reports/order_collection');
+              	   echo "<br>&nbsp;&nbsp;The Total Sales Count is : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;".count($totalsales); 
+             		 // $write = Mage::getSingleton('core/resource')->getConnection('core_write');
 
-               $read = Mage::getSingleton('core/resource')->getConnection('core_read');
-               $value = $read->query("select sum(base_grand_total) as currentsales from  sales_flat_order sfo where DATE_FORMAT(sfo.created_at,'%Y')=year(now()) ");
-               $row = $value->fetch();
-               echo "<br><br> The Current Year Sales is ". $row['currentsales']; 
-                               //echo "the total is " . $this->getTotals();
-               ?>
-            </td>
-    		<td><div class="dashright" style="border:1px solid #ccc;">
-                    <?php echo $this->getChildHtml('diagrams') ?>
-                    <?php if (is_array($this->getChild('diagrams')->getTabsIds())) : ?>
-                        <div id="diagram_tab_content"></div>
-                    <?php endif; ?>
+                   $read = Mage::getSingleton('core/resource')->getConnection('core_read');
+             	   $value = $read->query("select count(review_id) as reviewstatus from  review where status_id=2");
+              	   $row = $value->fetch();
+            	   echo "<br>&nbsp;&nbsp; Reviews awaiting approval : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  ". $row['reviewstatus'];
+             	 ?>
+             </div>
+              </td>
+    			<td>
+    				<div class="dashright">
+                   	 	<?php echo $this->getChildHtml('diagrams') ?>
+                    	<?php if (is_array($this->getChild('diagrams')->getTabsIds())) : ?>
+                      <div id="diagram_tab_content">
+                      </div>
+                    	<?php endif; ?>
                     <div style="margin:20px;">
                         <?php echo $this->getChildHtml('totals') ?>
                     </div>
@@ -130,23 +140,24 @@ function toggleCal(id) {
                         <?php echo $this->getChildHtml('grids') ?>
                         <div id="grid_tab_content"></div>
                     </div>
-                </div></td>
+               		 </div>
+               	 </td>
     	</tr>
     	<tr>
-    		<td colspan="1"><div class="lastorders">
-                    <div class="entry-edit-head"><h4><?php echo $this->__('Last 5 Orders') ?></h4></div>
+    		<td colspan="2"><div class="lastorders">
+                    <h4><?php echo $this->__('Last 5 Orders') ?></h4>
                     <fieldset class="np"><?php echo $this->getChildHtml('lastOrders'); ?></fieldset>
                 </div></td>
     	</tr>
     </table>
     <table>
         <tr>
-            <td><?php echo $this->getChildHtml('sales') ?>
+            <td><?php //echo $this->getChildHtml('sales') ?>
               <!--  <div class="lastorders">
                     <div class="entry-edit-head"><h4><?php echo $this->__('Last 5 Orders') ?></h4></div>
                     <fieldset class="np"><?php echo $this->getChildHtml('lastOrders'); ?></fieldset>
-                </div>
-                --><?php $roleId = implode('', Mage::getSingleton('admin/session')->getUser()->getRoles());
+                </div>-->
+                <?php $roleId = implode('', Mage::getSingleton('admin/session')->getUser()->getRoles());
                       $roleName = Mage::getModel('admin/roles')->load($roleId)->getRoleName();
                       if($roleName!="Siteadmin"){?>
                 <div class="entry-edit">
@@ -161,15 +172,15 @@ function toggleCal(id) {
             <?php }?>
             <!--<td>
                 <div class="dashright" style="border:1px solid #ccc;">
-                    <?php echo $this->getChildHtml('diagrams') ?>
+                    <?php //echo $this->getChildHtml('diagrams') ?>
                     <?php if (is_array($this->getChild('diagrams')->getTabsIds())) : ?>
                         <div id="diagram_tab_content"></div>
                     <?php endif; ?>
                     <div style="margin:20px;">
-                        <?php echo $this->getChildHtml('totals') ?>
+                        <?php //echo $this->getChildHtml('totals') ?>
                     </div>
                     <div style="margin:20px;">
-                        <?php echo $this->getChildHtml('grids') ?>
+                        <?php //echo $this->getChildHtml('grids') ?>
                         <div id="grid_tab_content"></div>
                     </div>
                 </div>
