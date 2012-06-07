@@ -1592,6 +1592,7 @@ div.actions:after,
     width:96%;
     height: 300px;
     margin-left: 20px;
+    
 }
 /*Dash Board  right div */
 
@@ -1612,7 +1613,8 @@ div.actions:after,
 	border-width:1px; 
 	border-style:solid; 
 	border-color: #ccc;
+    width:95%;
 	margin:18px;
 	height:280px;
-	width:95%
+	
 }

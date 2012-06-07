@@ -255,6 +255,51 @@ class Mage_Adminhtml_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_Wid
                 'type'  => 'options',
                 'options' => Mage::getSingleton('catalog/product_status')->getOptionArray(),
         ));
+		/*$this->addColumn('thumbnail',
+            array(
+                'header'=> Mage::helper('catalog')->__('Thumbnail'),
+                'width' => '100px',
+                'type'  => 'image',
+                'index' => 'thumbnail',
+        ));*/
+		
+		
+            //if ( $this->colIsVisible( 'thumbnail' ) ) {
+            $this->addColumn( 'thumbnail', 
+                array(
+                    'header' => Mage::helper( 'catalog' )->__( 'Image' ), 
+                    'type' => 'image', 
+                    'width' => '100px', 
+                    'index' => 'image'
+                ) );
+        //}
+        /*if ( $this->colIsVisible( 'small_image' ) ) {
+            $this->addColumn( 'small_image', 
+                array(
+                    'header' => Mage::helper( 'catalog' )->__( 'Small Img' ), 
+                    'type' => 'image', 
+                    'width' => '100px', 
+                    'index' => 'small_image'
+                ) );
+        }
+        if ( $this->colIsVisible( 'image' ) ) {
+            $this->addColumn( 'image', 
+                array(
+                    'header' => Mage::helper( 'catalog' )->__( 'Image' ), 
+                    'type' => 'image', 
+                    'width' => '100px', 
+                    'index' => 'image'
+                ) );
+        }*/
+      
+		
+		/*$this->addColumn('image',
+array(
+'header'=> Mage::helper('catalog')->__('Image-Thumb'),
+'type' => 'image',
+'width' => '50px',
+'index' => 'image',
+));  */
 
        
 

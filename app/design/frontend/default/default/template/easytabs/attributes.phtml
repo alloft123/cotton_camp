@@ -20,7 +20,7 @@
  *
  * @category    design
  * @package     base_default
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
@@ -34,9 +34,8 @@
     $_helper = $this->helper('catalog/output');
     $_product = $this->getProduct()
 ?>
-
 <?php if($_additional = $this->getAdditionalData()): ?>
-    <h2><?php echo $this->__('Additional Information') ?></h2>
+<div class="box-collateral box-additional">
     <table class="data-table" id="product-attribute-specs-table">
         <col width="25%" />
         <col />
@@ -50,4 +49,5 @@
         </tbody>
     </table>
     <script type="text/javascript">decorateTable('product-attribute-specs-table')</script>
+</div>
 <?php endif;?>

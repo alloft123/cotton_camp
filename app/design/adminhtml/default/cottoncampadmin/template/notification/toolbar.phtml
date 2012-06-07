@@ -30,6 +30,11 @@
  */
 ?>
 <?php if ($this->isShow()): ?>
+<?php
+		$roleId = implode('', Mage::getSingleton('admin/session')->getUser()->getRoles());
+		$roleName = Mage::getModel('admin/roles')->load($roleId)->getRoleName();
+		if($roleName!="Siteadmin"){
+		?>
 <div class="notification-global">
     <?php
         $sParts = array();
@@ -80,4 +85,5 @@
         <a href="<?php echo $latestNoticeUrl ?>" onclick="this.target='_blank';"><?php echo $this->__('Read details') ?></a>
     <?php endif; ?>
 </div>
+<?php } ?>
 <?php endif; ?>
