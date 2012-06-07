@@ -72,9 +72,8 @@
 <?php $_categories = $_helper->getStoreCategories() ?>
 <?php if (count($_categories) > 0): ?>
  <ul class="vert-two">
-    <?php foreach($_categories as $_category): ?>
-
-  <?php   if($_category->getIsActive()): 
+<?php foreach($_categories as $_category): ?>
+<?php if($_category->getIsActive()): 
 $cur_category=Mage::getModel('catalog/category')->load($_category->getId());
 $layer = Mage::getSingleton('catalog/layer');
 $layer->setCurrentCategory($cur_category);
@@ -83,8 +82,7 @@ if ($immagine = $cur_category->getThumbnailUrl()): ?>
   <li><a href="<?php echo $cur_category->getUrl()?>"><img src="<?php echo $immagine ?>" alt="" width="100" height="150"/></a></li>
 <?php $limit+=1; endif;
   if ($limit==4):
-        break; endif; endforeach; ?>
+        break; endif;endforeach; ?>
 </ul>
 <?php endif;?>
- </ul>
 </div>
