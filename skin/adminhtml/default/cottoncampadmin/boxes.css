@@ -284,7 +284,7 @@ ul.tabs a.error span.error      { background:url(images/fam_bullet_error.gif) 0 
 ul.tabs a.changed               { font-style:italic; }
 
 /* Horizontal Tabs */
-ul.tabs-horiz                   { margin:0 0 18px 0; background:url(images/horiz_tabs_ul_bg.gif) repeat-x 0 100% #f8f8f8; padding:8px 0 0 5px; }
+ul.tabs-horiz                   { margin:0 0 26px 0; background:url(images/horiz_tabs_ul_bg.gif) repeat-x 0 100% #f8f8f8; padding:8px 0 0 5px; }
 ul.tabs-horiz li                { float:left; margin:0 4px; }
 ul.tabs-horiz li a              { display:block; background:#e2e2e2; border:1px solid #ccc; padding:2px 10px; color:#333 !important; text-decoration:none !important; }
 ul.tabs-horiz li a.notloaded    { /* not used for now */ }
@@ -734,7 +734,7 @@ div.autocomplete ul li { padding:.5em .7em; min-height:32px; cursor:pointer; tex
 .login-form label                       { font-weight:bold; }
 .login-form .form-buttons               { margin:12px 0 0 0; clear:both; text-align:right; }
 .login-box .bottom                      { width:581px; height:5px; background:url(images/login_box_bottom.jpg) no-repeat; overflow:hidden; }
-.login-container .legal                 { padding:8px 8px 5px 8px; font-size:.95em; }
+.login-container .legal                 { margin:0; padding:8px 8px 5px 8px; font-size:.95em; }
 .login-form .validation-advice          { margin:3px 0 0 0; }
 .login-form .forgot-link                { margin:0 17px 0 0; text-align:right; }
 .login-form .captcha                    { padding:10px 0 0; }
@@ -1579,3 +1579,15 @@ div.actions:after,
 .files-wide .row:after,
 .grid tr.filter .range .range-line:after,
 .store-scope:after { display:block; clear:both; content:"."; font-size:0; line-height:0; height:0; overflow:hidden; }
+.lastorders
+{
+	float:left;
+    width:385px;
+    padding:30px;
+}
+.right
+{
+	float:right;
+    width:385px;
+    padding:30px;
+}
