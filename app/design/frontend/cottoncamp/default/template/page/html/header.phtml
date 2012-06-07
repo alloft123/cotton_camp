@@ -1,0 +1,90 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php/***********************************************************************************/
+/*code for display the category images form database with limited first four images*/
+/*Author 1: Loganathan
+/*Author 2: Madhu
+/*Company : Alloft Solutions
+/***********************************************************************************/?>
+<div id="menu" class="leftdiv">
+<div>
+    <div>
+        <?php if ($this->getIsHomePage()):?>
+        <div class="ctn_logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></div>
+        <?php else:?>
+        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+        <?php endif?>
+        <div class="quick-access">
+	<ul class="left_col">
+  <li><a href="#" title="Home" class="current">Home <p class="sub-con">back to the main page</p></a></li>
+  <li><a href="http://cottoncamp.com/index.php/product_list" title="Product Page">Product Page<p class="sub-con">who we are</p></a></li>
+  <li><a href="#" title="Portfolio Page">Portfolio Page<p class="sub-con">what we proud of</p></a></li>
+  <li><a href="#" title="Blog">Blog<p class="sub-con">latest news & tutorials</p></a></li>
+  <li><a href="#" title="Contact">Contact<p class="sub-con">get in touch</p></a></li>
+  <div class="taketour" align="left"></div>
+  </ul>
+             <?/*php echo $this->getChildHtml('topSearch')*/ ?>
+            <!--<p class="welcome-msg"><?/*php echo $this->getWelcome() */?> <?/*php echo $this->getAdditionalHtml()*/ ?></p>--!>
+            <?/*php echo $this->getChildHtml('topLinks')*/ ?>
+            <?/*php echo $this->getChildHtml('store_language') */?>
+        </div>
+        <?/*php echo $this->getChildHtml('topContainer');*/ ?>
+    </div>
+</div>
+<?php //echo $this->getChildHtml('topMenu') ?>
+</div>
+</div>
+<?php/***********************************************************************************/
+/*code for display the category images form database with limited first four images*/
+/*Author 1: Bhagya
+/*Author 2: Loganathan
+/*Comapny : Alloft Solutions
+/***************************************************************************************/?>
+<div id="content" class="rightdiv">
+<?php $limit = 0;  $_helper = Mage::helper('catalog/category')  ?>
+<?php $_categories = $_helper->getStoreCategories() ?>
+<?php if (count($_categories) > 0): ?>
+ <ul class="vert-two">
+    <?php foreach($_categories as $_category): ?>
+
+  <?php   if($_category->getIsActive()): 
+$cur_category=Mage::getModel('catalog/category')->load($_category->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_category);
+if ($immagine = $cur_category->getThumbnailUrl()): ?>
+<?php endif; ?>
+  <li><a href="<?php echo $cur_category->getUrl()?>"><img src="<?php echo $immagine ?>" alt="" width="100" height="150"/></a></li>
+<?php $limit+=1; endif;
+  if ($limit==4):
+        break; endif; endforeach; ?>
+</ul>
+<?php endif;?>
+ </ul>
+</div>
