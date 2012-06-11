@@ -581,7 +581,7 @@ div.side-col { float:left; width:220px; margin-right:-220px; padding-bottom:25px
 div.main-col { margin-left:220px; min-height:450px; padding:0 0 25px 25px; }
 div.main-col-inner { float:left; /* Fixes some inner clears in the liquid main-col */ width:100%; }
 
-.footer { clear:both; background:url(images/footer.png) repeat-x #e6e6e6; padding:105px 2.8em 2.8em 2.8em; font-size:.95em; text-align:center; }
+.footer {background:url(images/footer.png) repeat-x scroll 0 0 white;clear: both;color:#333;font-size: 12px;height: 90px;padding-top: 38px;position: relative;text-align: center; }
 .simple-container-popup { min-height:50px !important; padding:1.8em 2.3em 6em 2.3em; background:url(images/simple_container_bg.gif) repeat-x; }
 
 .page-popup { background:#fff; }

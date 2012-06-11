@@ -33,16 +33,16 @@
             </li>
             <li>
             	 	<?php 
-            	 		$attribute = Mage::getModel('eav/config')->getAttribute('customer','school');
+            	 		$attribute = Mage::getModel('eav/config')->getAttribute('customer','status');
             	 	?>
-                    <label for="is_active" class="<?php if($attribute->getIsRequired() == true){?>required<?php } ?>"><?php if($attribute->getIsRequired() == true){?><em>*</em><?php } ?><?php echo $this->__('School') ?></label>
+                    <label for="is_active" class="<?php if($attribute->getIsRequired() == true){?>required<?php } ?>"><?php if($attribute->getIsRequired() == true){?><em>*</em><?php } ?><?php echo $this->__('Status') ?></label>
                     <div class="input-box">
-                        <select name="school" id="school" class="<?php if($attribute->getIsRequired() == true){?>required-entry<?php } ?>">
+                        <select name="status" id="status" class="<?php if($attribute->getIsRequired() == true){?>required-entry<?php } ?>">
                         	<?php
                         		 $options = $attribute->getSource()->getAllOptions();
                         		 foreach($options as $option){
                         	?>
-                        		<option value='<?php echo $option['value']?>' <?php if($this->getCustomer()->getSchool() == $option['value']){ echo 'selected="selected"';}?>><?php echo $this->__($option['label'])?></option>
+                        		<option value='<?php echo $option['value']?>' <?php if($this->getCustomer()->getStatus() == $option['value']){ echo 'selected="selected"';}?>><?php echo $this->__($option['label'])?></option>
                         	<?php } ?>
                         </select>
                     </div>

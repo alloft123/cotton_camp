@@ -144,7 +144,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tabs extends Mage_Adminhtml_Block_Wi
                 'active'    => $active
             ));
         }
-                //added by bhagya to hide the searsh fields in the product page for site admin
+     
                  $roleId = implode('', Mage::getSingleton('admin/session')->getUser()->getRoles());
                  $roleName = Mage::getModel('admin/roles')->load($roleId)->getRoleName();
                  if($roleName!="Siteadmin"){
@@ -156,7 +156,6 @@ class Mage_Adminhtml_Block_Catalog_Category_Tabs extends Mage_Adminhtml_Block_Wi
          					   )->toHtml(),
        					 ));
                  }
-				 //code ends
 
         // dispatch event add custom tabs
         Mage::dispatchEvent('adminhtml_catalog_category_tabs', array(

@@ -1,0 +1,121 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+    <div id="header">
+	<!-- jQuery handles to place the header background images -->
+	<div id="headerimgs">
+		<div id="headerimg1" class="headerimg"></div>
+		<div id="headerimg2" class="headerimg"></div>
+	</div>
+	<?php echo $this->getChildHtml('header') ?>
+  	<!-- Slideshow controls -->
+	<div id="headernav-outerleft">
+		<div id="headernavleft">
+			<div id="back" class="btn"></div>
+			
+		</div>
+	</div>
+	<div id="headernav-outerright">
+		<div id="headernavright">
+			
+			<div id="next" class="btn"></div>
+		</div>
+	</div>
+	<!-- jQuery handles for the text displayed on top of the images -->
+	<div id="headertxt">
+	      <p class="caption">
+		 <div class="main-container col2-right-layout">
+	     <div class="main">
+                <?php echo $this->getChildHtml('breadcrumbs') ?>
+                <div class="col-main">
+	              <?php //echo $this->getChildHtml('global_messages') ?>
+                    <?php //echo $this->getChildHtml('content') ?>
+                </div>
+		<div id="contentright" class="rightdiv">
+			<?php  //get the current category 
+			$limit = 0; 
+			$_cat = new Mage_Catalog_Block_Navigation();
+			$currentCat = $_cat->getCurrentCategory();
+			//get the children of the current category
+			$subCats = Mage::getModel('catalog/category')->load($currentCat->getId())->getChildren();
+			//get sub category ids
+			$subCatIds = explode(',',$subCats);?>
+			<?php if (count($subCatIds) > 0): ?>
+				 <ul class="vert-two">
+					  <?php foreach($subCatIds as $subCatId): ?>
+						   <?php $subCat = Mage::getModel('catalog/category')->load($subCatId); ?>
+						   <?php if($subCat->getIsActive()): ?>
+								<li>
+								 <?php //display category image
+								 if($subCat->getThumbnailUrl()): ?>
+								 <a href="<?php echo $subCat->getUrl(); ?>"><img id="fixed" src="<?php echo $subCat->getThumbnailUrl(); ?>" alt="ghhghggh" width="100" height="150" /></a>
+								<?php echo $subCat->getName(); ?>
+								 <?php endif; ?>
+								</li>
+								<script type="text/javascript">
+									$(function() {
+									$('#fixed').capty({
+											animation:	'fixed'
+										});
+									});
+								</script>
+						   <?php
+						   $limit+=1;
+						   endif;
+						   if ($limit==4):
+							break;
+						   endif;
+						   ?>
+					  <?php endforeach; ?>
+				 </ul>
+			<?php endif; ?>
+		</div>
+            </div>
+        </div></p>
+	</div>
+</div>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>
