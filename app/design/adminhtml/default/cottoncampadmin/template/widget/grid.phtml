@@ -89,6 +89,7 @@ $numColumns = sizeof($this->getColumns());
             <?php echo $this->__('Total %d records found', $this->getCollection()->getSize()) ?>
             <span id="<?php echo $this->getHtmlId() ?>-total-count" class="no-display"><?php echo $this->getCollection()->getSize() ?></span>
            <?php
+		   //added by bhagya to hide the rss for site admin
 		$roleId = implode('', Mage::getSingleton('admin/session')->getUser()->getRoles());
 		$roleName = Mage::getModel('admin/roles')->load($roleId)->getRoleName();
 		if($roleName!="Siteadmin"){
@@ -98,10 +99,15 @@ $numColumns = sizeof($this->getColumns());
                 <span class="separator">|</span><a href="<?php echo $_rss->getUrl() ?>" class="link-feed"><?php echo $_rss->getLabel() ?></a>
                 <?php endforeach ?>
             <?php endif; ?>
-			<?php } ?>
+			<?php }
+			//code ends
+			 ?>
         </td>
     <?php endif ?>
+	<?php // added by bhagya to hide the export for site admin
+	if($roleName!="Siteadmin"){ ?>
     <?php if($this->getExportTypes()): ?>
+	
         <td class="export a-right">
             <img src="<?php echo $this->getSkinUrl('images/icon_export.gif') ?>" alt="" class="v-middle"/>&nbsp; <?php echo $this->__('Export to:') ?>
             <select name="<?php echo $this->getId() ?>_export" id="<?php echo $this->getId() ?>_export" style="width:8em;">
@@ -112,6 +118,9 @@ $numColumns = sizeof($this->getColumns());
             <?php echo $this->getExportButtonHtml() ?>
         </td>
     <?php endif; ?>
+	<?php }
+	//code ends
+	 ?>
         <td class="filter-actions a-right">
             <?php echo $this->getMainButtonsHtml() ?>
         </td>
