@@ -326,8 +326,8 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
 .notice-msg { border-color:#fcd344; background-color:#fafaec; background-image:url(../images/i_msg-note.gif); color:#3d6611; }
 
 /* BreadCrumbs */
-.breadcrumbs { font-size:11px; line-height:1.25; margin:0 0 13px; }
-.breadcrumbs li { display:inline; }
+.breadcrumbs { font-size:11px; line-height:1.25; margin:0 0 13px; width:50%; }
+.breadcrumbs li { display:inline;  }
 .breadcrumbs li strong { font-weight:bold; }
 
 /* Page Heading */
@@ -1855,12 +1855,12 @@ body { background-color:#1b2940; font:62.5% Georgia,'Times New Roman',serif; let
 
 /* rightdiv */
 #contentright { color:#575757;}
-.rightdiv{float:right;padding-right:50px;margin-top:25px;}
+.rightdiv{float:right;padding-right:50px;margin-top:0px;}
 ul.vert-two{margin:0;padding:0;list-style-type:none;display:block;font:bold 14px Helvetica, Verdana, Arial, sans-serif;line-height:165%;
-width:100px;}
-ul.vert-two li{margin:0;padding:0;border-top:0px solid #343434;border-bottom:0px solid #343434;width:100px}
-ul.vert-two img {border:3px solid white;margin-bottom:10px;}
-ul.vert-two img:hover {border:3px solid #A6A5A4}
+width:125px;}
+ul.vert-two li{margin:0;padding:0;border-top:0px solid #343434;border-bottom:0px solid #343434;width:125px}
+ul.vert-two img {border:4px solid #A3A0A0;margin-bottom:10px;}
+ul.vert-two img:hover {border:4px solid #A6A5A4}
 
 .image {
 	position:relative;
@@ -1871,4 +1871,32 @@ ul.vert-two img:hover {border:3px solid #A6A5A4}
 	top:10px; /* in conjunction with left property, decides the text position */
 	left:10px;
 	width:30px; /* optional, though better have one */
+}
+
+/*****Show the Image Caption**********/
+.imgpost 
+{
+	float: left;
+	margin: 0px 1px 1px 0px;
+	position: relative;
+}
+/* so that image still floats and looks nice even if JS is turned off */
+.imgpost img,
+img.captionme
+{
+	float: left;
+	background-color: #fff;
+	border: 1px solid #d7d7d7;
+	padding: 4px;
+}
+
+.imgpost .thecaption 
+{
+	background: url(../images/caption.png) no-repeat left bottom;
+	bottom: 30px;
+	color: #fff;
+	left: -23px;
+	padding: 8px 0px 18px 13px;
+	position: absolute;
+	width: 95%;
 }

@@ -1786,3 +1786,15 @@ tr.summary-details-excluded { font-style:italic; }
 /* ======================================================================================= */
 
 .guest-select {width:305px !important;}
+
+.new-tag {
+    background: url("http://cdni.zovi.in/cdn/s/images/new-tag.png") no-repeat scroll 0 0 transparent;
+    height: 56px;
+    position: absolute;
+    right: 5px;
+    top: -3px;
+    width: 59px;
+    z-index: 1;
+}
+.new-img{
+ background: url(../images/blinking_new.gif)no-repeat scroll 0 0 transparent;}

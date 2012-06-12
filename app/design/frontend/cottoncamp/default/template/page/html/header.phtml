@@ -79,7 +79,7 @@
 				$layer->setCurrentCategory($cur_category);
 				if ($immagine = $cur_category->getThumbnailUrl()): ?>
 				<?php endif; ?>
-				<li><a href="<?php echo $cur_category->getUrl()?>"><img src="<?php echo $immagine ?>" alt="" width="100" height="150"/></a></li>
+				<li><a href="<?php echo $cur_category->getUrl()?>"><img src="<?php echo $immagine ?>"  alt="" class="captionme" title="<?php echo $cur_category->getName(); ?>" width="100" height="150"/></a></li>
 				<?php $limit+=1;
 			endif;
 			if ($limit==4):

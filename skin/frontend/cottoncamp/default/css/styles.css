@@ -1813,8 +1813,8 @@ ul.left_col li a.current,ul.vert-one li a.current:hover {background:#4D4C4B url(
 ul.vert-two{margin:0;padding:0;list-style-type:none;display:block;font:bold 14px Helvetica, Verdana, Arial, sans-serif;line-height:165%;
 width:100px;}
 ul.vert-two li{margin:0;padding:0;border-top:0px solid #343434;border-bottom:0px solid #343434;width:100px}
-ul.vert-two img {border:3px solid white;margin-bottom:10px;}
-ul.vert-two img:hover {border:3px solid #A6A5A4}
+ul.vert-two img {border:4px solid #A3A0A0;margin-bottom:10px;}
+ul.vert-two img:hover {border:4px solid #A3A0A0}
 .wrapper-outer {width:1001px;padding:0px 60px 0 0px;margin:0 auto;/*background:#000;*/}
 .wrapper {width:220px;margin:0px 0 0px 0;float:left;}
 .leftdiv {height:200px;width:100px;float:left;}
@@ -1826,3 +1826,31 @@ ul.vert-two img:hover {border:3px solid #A6A5A4}
 	position:left;z-index:1000px;}
 
 /* ----------------------------------------------------- */
+
+/*****Show the Image Caption**********/
+.imgpost 
+{
+	float: left;
+	margin: 0px 1px 1px 0px;
+	position: relative;
+}
+/* so that image still floats and looks nice even if JS is turned off */
+.imgpost img,
+img.captionme
+{
+	float: left;
+	background-color: #fff;
+	border: 1px solid #d7d7d7;
+	padding: 4px;
+}
+
+.imgpost .thecaption 
+{
+	background: url(../images/caption.png) no-repeat left bottom;
+	bottom: 30px;
+	color: #fff;
+	left: -23px;
+	padding: 8px 0px 18px 13px;
+	position: absolute;
+	width: 95%;
+}
