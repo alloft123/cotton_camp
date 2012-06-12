@@ -61,55 +61,48 @@
 	</div>
 	<!-- jQuery handles for the text displayed on top of the images -->
 	<div id="headertxt">
-	      <p class="caption">
-		 <div class="main-container col2-right-layout">
-	     <div class="main">
-                <?php echo $this->getChildHtml('breadcrumbs') ?>
-                <div class="col-main">
-	              <?php //echo $this->getChildHtml('global_messages') ?>
-                    <?php //echo $this->getChildHtml('content') ?>
-                </div>
-		<div id="contentright" class="rightdiv">
-			<?php  //get the current category 
-			$limit = 0; 
-			$_cat = new Mage_Catalog_Block_Navigation();
-			$currentCat = $_cat->getCurrentCategory();
-			//get the children of the current category
-			$subCats = Mage::getModel('catalog/category')->load($currentCat->getId())->getChildren();
-			//get sub category ids
-			$subCatIds = explode(',',$subCats);?>
-			<?php if (count($subCatIds) > 0): ?>
-				 <ul class="vert-two">
-					  <?php foreach($subCatIds as $subCatId): ?>
-						   <?php $subCat = Mage::getModel('catalog/category')->load($subCatId); ?>
-						   <?php if($subCat->getIsActive()): ?>
-								<li>
-								 <?php //display category image
-								 if($subCat->getThumbnailUrl()): ?>
-								 <a href="<?php echo $subCat->getUrl(); ?>"><img id="fixed" src="<?php echo $subCat->getThumbnailUrl(); ?>" alt="ghhghggh" width="100" height="150" /></a>
-								<?php echo $subCat->getName(); ?>
-								 <?php endif; ?>
-								</li>
-								<script type="text/javascript">
-									$(function() {
-									$('#fixed').capty({
-											animation:	'fixed'
-										});
-									});
-								</script>
-						   <?php
-						   $limit+=1;
-						   endif;
-						   if ($limit==4):
-							break;
-						   endif;
-						   ?>
-					  <?php endforeach; ?>
-				 </ul>
-			<?php endif; ?>
-		</div>
-            </div>
-        </div></p>
+	  <p class="caption">
+		     <div class="main-container col2-right-layout">
+			<div class="main">
+				<?php echo $this->getChildHtml('breadcrumbs') ?>
+					<div class="col-main">
+					      <?php //echo $this->getChildHtml('global_messages') ?>
+					    <?php //echo $this->getChildHtml('content') ?>
+					</div>
+						<div id="contentright" class="rightdiv">
+							<?php  //get the current category 
+							$limit = 0; 
+							$_cat = new Mage_Catalog_Block_Navigation();
+							$currentCat = $_cat->getCurrentCategory();
+							//get the children of the current category
+							$subCats = Mage::getModel('catalog/category')->load($currentCat->getId())->getChildren();
+							//get sub category ids
+							$subCatIds = explode(',',$subCats);?>
+							<?php if (count($subCatIds) > 0): ?>
+								 <ul class="vert-two">
+									  <?php foreach($subCatIds as $subCatId): ?>
+										   <?php $subCat = Mage::getModel('catalog/category')->load($subCatId); ?>
+										   <?php if($subCat->getIsActive()): ?>
+												<li>
+												 <?php //display category image
+												 if($subCat->getThumbnailUrl()): ?>
+												<a href="<?php echo $subCat->getUrl(); ?>"><img id="fixed" src="<?php echo $subCat->getThumbnailUrl(); ?>" alt="" class="captionme" title="<?php echo $subCat->getName(); ?>" width="125" height="125" /></a>
+												 <?php endif; ?>
+												</li>
+												
+										   <?php
+										   $limit+=1;
+										   endif;
+										   if ($limit==3):
+											break;
+										   endif;
+										   ?>
+									  <?php endforeach; ?>
+								 </ul>
+							<?php endif; ?>
+						</div>
+			</div>
+		</div></p>
 	</div>
 </div>
         <?php echo $this->getChildHtml('footer') ?>

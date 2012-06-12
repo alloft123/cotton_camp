@@ -13,31 +13,31 @@ var slideshowSpeed = 6000;
 // which also includes some text and url's.
 var photos = [ {
 		"title" : "Stairs",
-		"image" : "../../skin/frontend/cottoncamp/categorypage/images/vacation.jpg",
+		"image" : "vacation.jpg",
 		"url" : "http://www.sxc.hu/photo/1271909",
 		"firstline" : "Going on",
 		"secondline" : "vacation?"
 	}, {
 		"title" : "Office Appartments",
-		"image" : "../../skin/frontend/cottoncamp/categorypage/images/work.jpg",
+		"image" : "work.jpg",
 		"url" : "http://www.sxc.hu/photo/1265695",
 		"firstline" : "Or still busy at",
 		"secondline" : "work?"
 	}, {
 		"title" : "Mountainbiking",
-		"image" : "../../skin/frontend/cottoncamp/categorypage/images/biking.jpg",
+		"image" : "biking.jpg",
 		"url" : "http://www.sxc.hu/photo/1221065",
 		"firstline" : "Get out and be",
 		"secondline" : "active"
 	}, {
 		"title" : "Mountains Landscape",
-		"image" : "../../skin/frontend/cottoncamp/categorypage/images/nature.jpg",
+		"image" : "nature.jpg",
 		"url" : "http://www.sxc.hu/photo/1271915",
 		"firstline" : "Take a fresh breath of",
 		"secondline" : "nature"
 	}, {
 		"title" : "Italian pizza",
-		"image" : "../../skin/frontend/cottoncamp/categorypage/images/food.jpg",
+		"image" : "bg1.jpg",
 		"url" : "http://www.sxc.hu/photo/1042413",
 		"firstline" : "Enjoy some delicious",
 		"secondline" : "food"
@@ -47,7 +47,8 @@ var photos = [ {
 
 
 $(document).ready(function() {
-		
+
+			
 	// Backwards navigation
 	$("#back").click(function() {
 		stopAnimation();
@@ -73,7 +74,7 @@ $(document).ready(function() {
 		// Start playing the animation
 		interval = setInterval(function() {
 			navigate("next");
-		});
+		}, slideshowSpeed);
 	});
 	
 	
@@ -120,13 +121,13 @@ $(document).ready(function() {
 		
 		// Set the background image of the new active container
 		$("#headerimg" + activeContainer).css({
-			"background-image" : "url(images/" + photoObject.image + ")",
+			"background-image" : "url(../../skin/frontend/cottoncamp/categorypage/images/" + photoObject.image + ")",
 			"display" : "block",
 			"z-index" : currentZindex
 		});
 		
 		// Hide the header text
-		$("#headertxt").css({"display" : "none"});
+		$("#headertxt").css({"display" : "block"});
 		
 		// Set the new header text
 		$("#firstline").html(photoObject.firstline);
@@ -162,13 +163,19 @@ $(document).ready(function() {
 	// Start playing the animation
 	interval = setInterval(function() {
 		navigate("next");
-	});
+	}, slideshowSpeed);
 	
+// image caption
+	$("img.captionme").each(function(i) 
+	{
+		var captiontext = $(this).attr('title');
+		$(this).wrap("<div class='imgpost'></div>");
+		$(this).parent().append("<div class='thecaption'>" + captiontext + "</div>");
+	});
 });
+
 })(jQuery);
 jQuery.noConflict();
 
 
-/* Code for Displaying the Image Name*/
-(function(b){b.fn.capty=function(g){var k=b.extend({},b.fn.capty.defaults,g);if(this.length==0){a("Selector invalid or missing!");return;}else{if(this.length>1){return this.each(function(){b.fn.capty.apply(b(this),[g]);});}}var j=b(this),d=j.attr("name"),h=b('<div class="'+k.cCaption+'"/>'),e=j;if(j.parent().is("a")){e=j.parent();}var f=e.wrap('<div class="'+k.cImage+'"/>').parent(),i=f.wrap('<div class="'+k.cWrapper+'"/>').parent();i.css({height:j.height(),overflow:"hidden",position:"relative",width:j.width()});h.css({height:k.height,opacity:k.opacity,position:"relative"}).click(function(l){l.stopPropagation();}).appendTo(i);if(d){var c=b(d);if(c.length){c.appendTo(h);}else{h.html('<span style="color: #F00;">Content invalid or missing!</span>');}}else{h.html(j.attr("alt"));}if(k.prefix){h.prepend(k.prefix);}if(k.sufix){h.append(k.sufix);}if(k.animation=="slide"){i.hover(function(){h.animate({top:(-1*k.height)},{duration:k.speed,queue:false});},function(){h.animate({top:0},{duration:k.speed,queue:false});});}else{if(k.animation=="fade"){h.css({opacity:0,top:(-1*k.height)+"px"});i.hover(function(){h.stop().animate({opacity:k.opacity},k.speed);},function(){h.stop().animate({opacity:0},k.speed);});}else{if(k.animation=="fixed"){h.css("top",(-1*k.height)+"px");}else{a(j.attr("id")+": invalid animation!");}}}return j;};function a(c){if(window.console&&window.console.log){window.console.log(c);}}b.fn.capty.defaults={animation:"slide",cCaption:"capty-caption",cImage:"capty-image",cWrapper:"capty-wrapper",height:30,opacity:0.7,prefix:"",speed:200,sufix:""};})(jQuery);
 
