@@ -1618,3 +1618,10 @@ div.actions:after,
 	height:280px;
 	
 }
+
+/*----Placing More views to left---*/
+
+.moreviews
+{
+  margin: -310px 0 0 380px; 	
+}
