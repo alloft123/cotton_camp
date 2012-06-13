@@ -31,22 +31,26 @@
  * @see Mage_Catalog_Block_Layer_Filter
  */
 ?>
-
 <ol class="m-filter-item-list">
 <?php foreach ($this->getItems() as $_item): ?>
     <li>
         <?php if ($_item->getCount() > 0): ?>
-        <!--<a href="<?php echo $this->urlEscape($_item->getUrl()) ?>"><?php echo $_item->getLabel() ?></a>-->
+       <!-- <a href="<?php echo $this->urlEscape($_item->getUrl()) ?>"><?php echo $_item->getLabel() ?></a>-->
 	<label><input type="checkbox" name="<?php echo strtolower($GLOBALS['filtername']);?>" 
 	onclick="setLocation('<?php echo $this->urlEscape($_item->getUrl()) ?>')" value="<?php echo strtolower($GLOBALS['filtername']); ?><?php echo $_item->getValue(); ?>"><?php echo $_item->getLabel() ?></label>
+	
         <?php else: echo $_item->getLabel() ?>
         <?php endif; ?>
         <?php if ($this->shouldDisplayProductCount()): ?>
         (<?php echo $_item->getCount() ?>)
         <?php endif; ?>
+		<br>
     </li>
 <?php endforeach ?>
 </ol>
+
+
+
 
 
 
