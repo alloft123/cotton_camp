@@ -35,7 +35,7 @@ Default layout, loads most of the pages
         <block type="page/html" name="root" output="toHtml" template="page/2columns-left.phtml">
 
             <block type="page/html_head" name="head" as="head">
-				<action method="addJs"><script>jquery/jquery.js</script></action>
+				<action method="addJs"><script>jquery/jquery-1.7.1.js</script></action>
                 <action method="addJs"><script>prototype/prototype.js</script></action>
                 <action method="addJs"><script>lib/ccard.js</script></action>
                 <action method="addJs"><script>prototype/validation.js</script></action>
@@ -121,7 +121,7 @@ Default layout, loads most of the pages
         <block type="page/html" name="root" output="toHtml" template="page/print.phtml">
 
             <block type="page/html_head" name="head" as="head">
-				<action method="addJs"><script>jquery/jquery.js</script></action>
+				<action method="addJs"><script>jquery/jquery-1.7.1.js</script></action>
                 <action method="addJs"><script>prototype/prototype.js</script></action>
                 <action method="addJs"><script>mage/translate.js</script></action>
                 <action method="addJs"><script>lib/ccard.js</script></action>
