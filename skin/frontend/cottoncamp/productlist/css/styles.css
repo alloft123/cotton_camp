@@ -148,7 +148,7 @@ input.checkbox { margin-right:3px; }
 input.qty { width:2.5em !important; }
 button.button::-moz-focus-inner { padding:0; border:0; } /* FF Fix */
 button.button { -webkit-border-fit:lines; } /* <- Safari & Google Chrome Fix */
-button.button { overflow:visible; width:auto; border:0; padding:0; margin:0; background:transparent; cursor:pointer; }
+button.button { overflow:visible; width:auto;  border:0; padding:0; margin:0; background:transparent; cursor:pointer; }
 button.button span { float:left; height:28px; background:transparent url(../images/bkg_btn.png) 0 0 no-repeat; padding:0 0 0 6px; font:bold 11px/25px Tahoma, Verdana, Arial, sans-serif; text-transform:uppercase; text-align:center; white-space:nowrap; color:#555; }
 button.button span span { background-position:100% 0; padding:0 15px 0 9px; }
 button.disabled span { color:#bbb !important; }
@@ -729,7 +729,7 @@ tr.summary-details-excluded { font-style:italic; }
 /* View Type: Grid */
 .products-grid { position:relative; }
 .products-grid.last { border-bottom:0; }
-.products-grid li.item { float:left; width:171px; padding:0 0 90px; }
+.products-grid li.item { float:left; width:171px; padding:0 0 50px; }
 .products-grid .product-image { display:block; width:170px; height:170px; border:1px solid #ddd; border-width:1px 1px 1px 0; margin:0 0 10px; }
 .products-grid.first .product-image { border-top:0; }
 .products-grid li.last .product-image { border-right:0; }
@@ -1831,7 +1831,7 @@ tr.summary-details-excluded { font-style:italic; }
     padding-right: 2px;
     padding-top: 3px;
     text-transform: uppercase;
-    width: 100%;
+    width: 97%;
     color:White;
 }
 .cotton-refine-by .cotton-content dd {
@@ -1941,10 +1941,12 @@ tr.summary-details-excluded { font-style:italic; }
     display: cotton;
     font-size: 11px;
     line-height: 17px;
-    margin-bottom: 5px;
+	margin: 0 15px 5px;
+	width: 130px;
+   /* margin-bottom: 5px;
     margin-left: 0;
     margin-right: 0;
-    margin-top: 0;
+    margin-top: 0;*/
 }
 
 
@@ -2067,4 +2069,7 @@ tr.summary-details-excluded { font-style:italic; }
  background: url(../images/blinking_new.gif)no-repeat scroll 0 0 transparent;}
  
 
- 
+ .new-img1{
+ margin-bottom:17px;
+ }
+

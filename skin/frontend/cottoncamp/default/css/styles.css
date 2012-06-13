@@ -26,7 +26,7 @@
 /* Reset ================================================================================= */
 * { margin:0; padding:0; }
 
-body          {background: url(../images/bg1.jpg) repeat scroll -20px -60px #FFFFFF;color: #000000;font-family: Arial,Helvetica,sans-serif;font-size: 12px;line-height: 18px;margin: 0;padding: 0; }
+body          {background: url(../images/bg1.jpg) no-repeat #FFFFFF; background-size: 100%; color: #000000;font-family: Arial,Helvetica,sans-serif;font-size: 12px;line-height: 18px;margin: 0;padding: 0; }
 
 img           { border:0; vertical-align:top; }
 
@@ -1818,7 +1818,7 @@ ul.vert-two img:hover {border:4px solid #A3A0A0}
 .wrapper-outer {width:1001px;padding:0px 60px 0 0px;margin:0 auto;/*background:#000;*/}
 .wrapper {width:220px;margin:0px 0 0px 0;float:left;}
 .leftdiv {height:200px;width:100px;float:left;}
-.rightdiv{float:right;padding-right:50px;margin-top:25px;}
+.rightdiv{float:right;padding-right:10%;margin-top:25px;}
 /*------------------------------------------------------ */
 
 /* -----------Arrow Image Block------------------------- */
