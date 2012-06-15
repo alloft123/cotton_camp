@@ -1,0 +1,108 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product media data template
+ *
+ * @see Mage_Catalog_Block_Product_View_Media
+ */
+?>
+<?php
+    $_product = $this->getProduct();
+    $_helper = $this->helper('catalog/output');
+?>
+<?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
+<p class="product-image">
+    <?php
+        $_img = '<img id="image1" src="'.$this->helper('catalog/image')->init($_product, 'image').'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" width="265"  />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+</p>
+<p class="zoom-notice" id="track_hint"><?php echo $this->__('Mouse over the image for zoom') ?></p>
+
+
+<?php else: ?>
+<p class="product-image">
+    <?php
+        $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(265).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" width="265" id="image1" />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+</p>
+<?php endif; ?>
+<?php if (count($this->getGalleryImages()) > 0): ?>
+<div class="more-views">
+    <h2><?php echo $this->__('More Views') ?></h2>
+    <ul>
+    <?php foreach ($this->getGalleryImages() as $_image): ?>
+	
+        <li>
+            <a onclick="imageswitcher('<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile());?>');" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(56); ?>" width="56" height="56" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" /></a>
+        </li>
+    <?php endforeach; ?>
+    </ul>
+</div>
+
+	<?php endif; ?>
+	
+<style type="text/css">
+.magnifyarea{ /* CSS to add shadow to magnified image. Optional */
+    box-shadow: 5px 5px 7px #818181;
+    -webkit-box-shadow: 5px 5px 7px #818181;
+    -moz-box-shadow: 5px 5px 7px #818181;
+    filter: progid:DXImageTransform.Microsoft.dropShadow(color=#818181, offX=5, offY=5, positive=true);
+    background: white;
+}
+</style>
+
+<script type="text/javascript">
+
+function imageswitcher(imagename){	
+	//var newImg	=	imagename.src;
+	
+	jQuery('#image1').attr('src',imagename);
+	var options	=	{
+		zoomrange: [<?php echo Mage::getStoreConfig('featurezoom/zoomrange/start');?>, <?php echo Mage::getStoreConfig('featurezoom/zoomrange/end');?>],
+		magnifiersize: [<?php echo Mage::getStoreConfig('featurezoom/magnifiersize/height');?>,<?php echo Mage::getStoreConfig('featurezoom/magnifiersize/width');?>],
+		magnifierpos: '<?php echo Mage::getStoreConfig('featurezoom/general/magnifierpos');?>',
+		cursorshade: true,
+		largeimage: imagename //<-- No comma after last option!
+	}
+		jQuery('#image1').addimagezoom(options);
+}
+</script>
+<script type="text/javascript">
+//<![CDATA[
+    Event.observe(window, 'load', function() {
+        jQuery('#image1').addimagezoom({	
+		zoomrange: [<?php echo Mage::getStoreConfig('featurezoom/zoomrange/start');?>, <?php echo Mage::getStoreConfig('featurezoom/zoomrange/end');?>],
+		magnifiersize: [<?php echo Mage::getStoreConfig('featurezoom/magnifiersize/height');?>,<?php echo Mage::getStoreConfig('featurezoom/magnifiersize/width');?>],
+		magnifierpos: '<?php echo Mage::getStoreConfig('featurezoom/general/magnifierpos');?>',
+		cursorshade: true,		
+		largeimage: '<?php echo $this->helper('catalog/image')->init($_product, 'image');?>' //<-- No comma after last option!
+	})
+    });
+//]]>
+</script>

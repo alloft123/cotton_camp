@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <sections>
+        <featurezoom translate="label" >
+            <label>VS Feature Zoom</label>
+            <tab>catalog</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>90</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>Feature Zoom Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+
+						<magnifierpos translate="label">
+                            <label>Magnifier Position</label>							
+                            <frontend_type>select</frontend_type>
+                            <source_model>featurezoom/magnifierpos</source_model>                          
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </magnifierpos>						
+                    </fields>
+                </general>
+				<zoomrange translate="label">
+                    <label>Zoom Range Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<start translate="label">
+                            <label>Zoom Range Start</label>
+							<comment>use numbers e.g. 1 to 10</comment>
+							<validate>required-entry validate-number</validate>
+                            <frontend_type>text</frontend_type>                           
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </start>
+						<end translate="label">
+                            <label>Zoom Range End</label>
+							<comment>use numbers e.g. 1 to 10</comment>
+							<validate>required-entry validate-number</validate>
+                            <frontend_type>text</frontend_type>                           
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </end>
+                    </fields>
+                </zoomrange>
+				<magnifiersize translate="label">
+                    <label>Magnifier Size Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<height translate="label">
+                            <label>Magnifier Height</label>
+							<validate>required-entry validate-number</validate>
+                            <frontend_type>text</frontend_type>                           
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </height>
+						<width translate="label">
+                            <label>Zoom Range Width</label>							
+                            <frontend_type>text</frontend_type>   
+							<validate>required-entry validate-number</validate>                        
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </width>
+                    </fields>
+                </magnifiersize>
+            </groups>
+			
+        </featurezoom>
+    </sections>
+</config>
