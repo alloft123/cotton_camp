@@ -2068,9 +2068,11 @@ tr.summary-details-excluded { font-style:italic; }
 .new-img{
  background: url(../images/blinking_new.gif)no-repeat scroll 0 0 transparent;}
  
+
  .new-img1{
  margin-bottom:17px;
  }
+
 
  /* Zoom**/
  a img,:link img,:visited img { border: none; }

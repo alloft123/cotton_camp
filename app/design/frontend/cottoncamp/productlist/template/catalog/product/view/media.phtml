@@ -57,7 +57,7 @@
     <h2><?php echo $this->__('More Views') ?></h2>
     <ul>
     <?php foreach ($this->getGalleryImages() as $_image): ?>
-	
+      
         <li>
             <a onclick="imageswitcher('<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile());?>');" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(56); ?>" width="56" height="56" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" /></a>
         </li>
@@ -65,8 +65,8 @@
     </ul>
 </div>
 
-	<?php endif; ?>
-	
+      <?php endif; ?>
+      
 <style type="text/css">
 .magnifyarea{ /* CSS to add shadow to magnified image. Optional */
     box-shadow: 5px 5px 7px #818181;
@@ -79,30 +79,30 @@
 
 <script type="text/javascript">
 
-function imageswitcher(imagename){	
-	//var newImg	=	imagename.src;
-	
-	jQuery('#image1').attr('src',imagename);
-	var options	=	{
-		zoomrange: [<?php echo Mage::getStoreConfig('featurezoom/zoomrange/start');?>, <?php echo Mage::getStoreConfig('featurezoom/zoomrange/end');?>],
-		magnifiersize: [<?php echo Mage::getStoreConfig('featurezoom/magnifiersize/height');?>,<?php echo Mage::getStoreConfig('featurezoom/magnifiersize/width');?>],
-		magnifierpos: '<?php echo Mage::getStoreConfig('featurezoom/general/magnifierpos');?>',
-		cursorshade: true,
-		largeimage: imagename //<-- No comma after last option!
-	}
-		jQuery('#image1').addimagezoom(options);
+function imageswitcher(imagename){  
+      //var newImg      =     imagename.src;
+      
+      jQuery('#image1').attr('src',imagename);
+      var options =     {
+            zoomrange: [<?php echo Mage::getStoreConfig('featurezoom/zoomrange/start');?>, <?php echo Mage::getStoreConfig('featurezoom/zoomrange/end');?>],
+            magnifiersize: [<?php echo Mage::getStoreConfig('featurezoom/magnifiersize/height');?>,<?php echo Mage::getStoreConfig('featurezoom/magnifiersize/width');?>],
+            magnifierpos: '<?php echo Mage::getStoreConfig('featurezoom/general/magnifierpos');?>',
+            cursorshade: true,
+            largeimage: imagename //<-- No comma after last option!
+      }
+            jQuery('#image1').addimagezoom(options);
 }
 </script>
 <script type="text/javascript">
 //<![CDATA[
     Event.observe(window, 'load', function() {
-        jQuery('#image1').addimagezoom({	
-		zoomrange: [<?php echo Mage::getStoreConfig('featurezoom/zoomrange/start');?>, <?php echo Mage::getStoreConfig('featurezoom/zoomrange/end');?>],
-		magnifiersize: [<?php echo Mage::getStoreConfig('featurezoom/magnifiersize/height');?>,<?php echo Mage::getStoreConfig('featurezoom/magnifiersize/width');?>],
-		magnifierpos: '<?php echo Mage::getStoreConfig('featurezoom/general/magnifierpos');?>',
-		cursorshade: true,		
-		largeimage: '<?php echo $this->helper('catalog/image')->init($_product, 'image');?>' //<-- No comma after last option!
-	})
+        jQuery('#image1').addimagezoom({  
+            zoomrange: [<?php echo Mage::getStoreConfig('featurezoom/zoomrange/start');?>, <?php echo Mage::getStoreConfig('featurezoom/zoomrange/end');?>],
+            magnifiersize: [<?php echo Mage::getStoreConfig('featurezoom/magnifiersize/height');?>,<?php echo Mage::getStoreConfig('featurezoom/magnifiersize/width');?>],
+            magnifierpos: '<?php echo Mage::getStoreConfig('featurezoom/general/magnifierpos');?>',
+            cursorshade: true,            
+            largeimage: '<?php echo $this->helper('catalog/image')->init($_product, 'image');?>' //<-- No comma after last option!
+      })
     });
 //]]>
 </script>

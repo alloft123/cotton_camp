@@ -100,7 +100,7 @@ class Varien_Data_Form_Element_Editor extends Varien_Data_Form_Element_Textarea
                 }
             }
 
-            $html = $this->_getButtonsHtml()
+           $html = $this->_getButtonsHtml()
                 . '<textarea name="' . $this->getName() . '" title="' . $this->getTitle()
                 . '" id="' . $this->getHtmlId() . '"'
                 . ' class="textarea ' . $this->getClass() . '" '
@@ -111,22 +111,32 @@ class Varien_Data_Form_Element_Editor extends Varien_Data_Form_Element_Textarea
                     if ("undefined" != typeof(Translator)) {
                         Translator.add(' . Zend_Json::encode($translatedString) . ');
                     }'
-                    . $jsSetupObject . ' = new tinyMceWysiwygSetup("' . $this->getHtmlId() . '", '
+                   . $jsSetupObject . ' = new tinyMceWysiwygSetup("' . $this->getHtmlId() . '", '
                     . Zend_Json::encode($this->getConfig()).');'
                     . $forceLoad.'
                     editorFormValidationHandler = ' . $jsSetupObject . '.onFormValidation.bind(' . $jsSetupObject . ');
                     Event.observe("toggle' . $this->getHtmlId() . '", "click", '
-                        . $jsSetupObject . '.toggle.bind('.$jsSetupObject.'));
+                       . $jsSetupObject . '.toggle.bind('.$jsSetupObject.'));
                     varienGlobalEvents.attachEventHandler("formSubmit", editorFormValidationHandler);
-                    varienGlobalEvents.attachEventHandler("tinymceBeforeSetContent", '
-                        . $jsSetupObject . '.beforeSetContent.bind(' . $jsSetupObject . '));
-                    varienGlobalEvents.attachEventHandler("tinymceSaveContent", '
-                        . $jsSetupObject . '.saveContent.bind(' . $jsSetupObject . '));
-                    varienGlobalEvents.clearEventHandlers("open_browser_callback");
-                    varienGlobalEvents.attachEventHandler("open_browser_callback", '
+                   varienGlobalEvents.attachEventHandler("tinymceBeforeSetContent", '
+                       . $jsSetupObject . '.beforeSetContent.bind(' . $jsSetupObject . '));
+                   varienGlobalEvents.attachEventHandler("tinymceSaveContent", '
+                       . $jsSetupObject . '.saveContent.bind(' . $jsSetupObject . '));
+                   varienGlobalEvents.clearEventHandlers("open_browser_callback");                    varienGlobalEvents.attachEventHandler("open_browser_callback", '
                         . $jsSetupObject . '.openFileBrowser.bind(' . $jsSetupObject . '));
                 //]]>
-                </script>';
+               </script>';
+
+            
+//$html = '<textarea name="'.$this->getName().'" title="'.$this->getTitle().'" id="'.$this->getHtmlId().'" class="textarea '.$this->getClass().'" '.$this->serialize($this->getHtmlAttributes()).' >'.$this->getEscapedValue().'</textarea>
+//               <script type="text/javascript" src="/js/fckeditor/fckeditor.js"></script>
+//               <script type="text/javascript">
+//                   window.onload = function() {
+//                       var oFCKeditor = new FCKeditor( "' . $element .'" ) ;
+//                       oFCKeditor.BasePath = "/js/fckeditor/" ;
+//                       oFCKeditor.ReplaceTextarea() ;
+//                   }
+//               </script>';
 
             $html = $this->_wrapIntoContainer($html);
             $html .= $this->getAfterElementHtml();
