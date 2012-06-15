@@ -483,7 +483,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 .header .top-promo { float:left; width:117px; height:30px; margin:12px 10px 0; background:url(../images/bkg_top-promo.gif) 0 0 no-repeat; text-indent:-999em; overflow:hidden; }*/
 
-.quick-access { background:#444; color:#fff; padding:7px 13px; text-align:right; }
+.quick-access {  color:#fff; padding:7px 13px; text-align:right; }
 .quick-access .welcome-msg { display:inline; margin:0; color:#fff; }
 .quick-access .welcome-msg a { color:#ddd; }
 .quick-access .form-language { float:left; }
@@ -494,7 +494,7 @@ tr.summary-details-excluded { font-style:italic; }
 .quick-access .links,
 .quick-access .links li { display:inline; }
 .quick-access .links li { padding:0 4px 0 1px; }
-.quick-access .links a { color:#ddd; }
+.quick-access .links a { color:#444444; font-weight:bold; font-family: Arial,sans-serif; }
 .quick-access .links a { padding:0 7px 0 0; background:url(../images/bkg_pipe1.gif) no-repeat 100% 50%; }
 .quick-access .links li.last a { padding:0; background:none; }
 
@@ -1761,7 +1761,7 @@ tr.summary-details-excluded { font-style:italic; }
 	width:180px;
 	height:40px;
 	text-indent:-99999px;
-	background:black url('../images/logo.jpg') no-repeat center top;
+	background: #ffffff url('../images/logo.jpg') no-repeat center top;
 	float:left;
 }
 
@@ -1811,7 +1811,7 @@ tr.summary-details-excluded { font-style:italic; }
     background-attachment: scroll;
     background-clip: border-box;
     background-color: #000;
-    background-image: none;
+    /*background-image: none;*/
     background-origin: padding-box;
     background-position: 0 0;
     background-repeat: repeat;
