@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * Package :- CueBlocks_Featurezoom-1.5.tgz
+ * Version :- 1.5
+ * Edition :- Community
+ * Developed By :- CueBlocks.com
+ * 
+ */
+-->
+<config>
+	<modules>
+		<VS_Featurezoom>
+		    <active>true</active>
+		    <codePool>community</codePool>
+		    <depends>
+			<Mage_Catalog />
+		    </depends>
+		</VS_Featurezoom>
+	</modules>
+</config>

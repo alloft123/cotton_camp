@@ -19,7 +19,7 @@
  * needs please refer to http://www.magentocommerce.com for more information.
  *
  * @category    design
- * @package     default_modern
+ * @package     base_default
  * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
@@ -70,6 +70,11 @@
                     <?php endif; ?>
                     <?php echo $this->getChildHtml('addto') ?>
                 </div>
+                <?php echo $this->getChildHtml('extra_buttons') ?>
+            <?php elseif (!$_product->isSaleable()): ?>
+                <div class="add-to-box">
+                    <?php echo $this->getChildHtml('addto') ?>
+                </div>
             <?php endif; ?>
 
             <?php if ($_product->getShortDescription()):?>
@@ -80,6 +85,7 @@
             <?php endif;?>
 
             <?php echo $this->getChildHtml('other');?>
+
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                 <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
             <?php endif;?>
@@ -88,14 +94,6 @@
 
         <div class="product-img-box">
             <?php echo $this->getChildHtml('media') ?>
-	    <script type="text/javascript">
-		jQuery(document).ready(function(){
-		 var options = {
-               zoomType: 'reverse'
-            }
-            jQuery(".jqzoom").jqzoom(options);
-        });
-    </script>
         </div>
 
         <div class="clearer"></div>
@@ -157,9 +155,15 @@
     </div>
 
     <div class="product-collateral">
-        <?php echo $this->getChildHtml('info_tabs') ?>
+<?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+        <div class="box-collateral <?php echo "box-{$alias}"?>">
+            <?php if ($title = $this->getChildData($alias, 'title')):?>
+            <h2><?php echo $this->escapeHtml($title); ?></h2>
+            <?php endif;?>
+            <?php echo $html; ?>
+        </div>
+<?php endforeach;?>
+        <?php echo $this->getChildHtml('upsell_products') ?>
         <?php echo $this->getChildHtml('product_additional_data') ?>
     </div>
-
-    
 </div>

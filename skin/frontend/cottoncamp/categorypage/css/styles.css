@@ -26,7 +26,7 @@
 /* Reset ================================================================================= */
 * { margin:0; padding:0; }
 
-body          {font:12px/1.55 Arial, Helvetica, sans-serif; color:#2f2f2f; text-align:center; }
+body          {font:16px/1.55 Arial, Helvetica, sans-serif; color:#2f2f2f; text-align:center; }
 
 img           { border:0; vertical-align:top; }
 
@@ -1796,11 +1796,10 @@ tr.summary-details-excluded { font-style:italic; }
 }
 
 
-/* BASIC RESET */
-ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input{margin:0; padding:0;}
+
 
 /* HTML ELEMENTS */
-body { background-color:#1b2940; font:62.5% Georgia,'Times New Roman',serif; letter-spacing:1; }
+body { background-color:#1b2940; letter-spacing:2; }
 
 /* COMMON CLASSES */
 .break { clear:both; }
@@ -1845,7 +1844,7 @@ body { background-color:#1b2940; font:62.5% Georgia,'Times New Roman',serif; let
 #headernav-outerleft { position:absolute; top:220px; margin:0 auto; width:27px; border: none; z-index:10; }
 #headernavleft { padding-left:8px; }
 #headernav-outerright { position:absolute; top:220px; margin:0 auto; width:27px; border: none; z-index:10; }
-#headernavright { padding-left:1366px; }
+#headernavright { padding-left:1320px; }
 
 /* CONTENT */
 #content { color:#575757; background-color:#eee; }
