@@ -80,6 +80,14 @@ class Mage_Adminhtml_Block_Cms_Page_Edit_Tab_Main
             'note'      => Mage::helper('cms')->__('Relative to Website Base URL'),
             'disabled'  => $isElementDisabled
         ));
+        $fieldset->addField('content', 'editor', array(
+            'name'      => 'content',
+            'label'     => Mage::helper('cms')->__('Content'),
+            'title'     => Mage::helper('cms')->__('Content'),
+            'style'     => 'width: 98%; height: 600px;',
+            'wysiwyg'   => true,
+            'required'  => true,
+        ));
 
         /**
          * Check is single store mode
